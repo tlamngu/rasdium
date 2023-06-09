@@ -1,5 +1,6 @@
 *{
     box-sizing: border-box;
+    user-select: none;
 }
 html, body{
     overflow-x: hidden;
@@ -198,6 +199,27 @@ html, body{
 }
 footer{
     margin-top: 200px;
+}
+.account{
+    position: absolute;
+    right: 5px;
+}
+.account > a{
+    color: #000000;
+    text-decoration: none;
+}
+.accountIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.accountIcon:hover{
+    cursor: pointer;
+}
+.accountIcon > i{
+    font-size: larger;
+    margin: 10px;
 }
 @media only screen and (max-width: 1000px) {
     .profile-container{
