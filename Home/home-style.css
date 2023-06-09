@@ -66,25 +66,6 @@ html, body{
 .body-dark{
     background-color: #212529;
 }
-.dark-nav{
-    background-color: #171719;
-}
-.dark-nav > *{
-    background-color: #171719;
-}
-.navbar-center > *{
-    margin: auto;
-}
-.nav-link{
-    font-size: large;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-.nav-item{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 .Main-carousel{
     margin-top: 100px;
@@ -189,6 +170,17 @@ html, body{
     margin: auto;
     margin: 10px;
 }
+.card{
+    transition: 0.2s ease-in;
+}
+.card:hover{
+    transform: translate(0, -20px);
+    transition: 0.15s ease-out;
+    cursor: pointer;
+    box-shadow: 0px 10px 20px 3px rgba(0,0,0,0.25);
+    -webkit-box-shadow: 0px 10px 20px 3px rgba(0,0,0,0.25);
+    -moz-box-shadow: 0px 10px 20px 3px rgba(0,0,0,0.25);
+}
 .card .card-text{
     padding-left: 5px;
 }
@@ -200,27 +192,7 @@ html, body{
 footer{
     margin-top: 200px;
 }
-.account{
-    position: absolute;
-    right: 5px;
-}
-.account > a{
-    color: #000000;
-    text-decoration: none;
-}
-.accountIcon{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 10px;
-}
-.accountIcon:hover{
-    cursor: pointer;
-}
-.accountIcon > i{
-    font-size: larger;
-    margin: 10px;
-}
+
 @media only screen and (max-width: 1000px) {
     .profile-container{
         height: 50vh;

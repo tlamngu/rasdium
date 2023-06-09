@@ -1,0 +1,40 @@
+.dark-nav{
+    background-color: #171719;
+}
+.dark-nav > *{
+    background-color: #171719;
+}
+.navbar-center > *{
+    margin: auto;
+}
+.nav-link{
+    font-size: large;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+.nav-item{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.account{
+    position: absolute;
+    right: 5px;
+}
+.account > a{
+    color: #000000;
+    text-decoration: none;
+}
+.accountIcon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+}
+.accountIcon:hover{
+    cursor: pointer;
+}
+.accountIcon > i{
+    font-size: larger;
+    margin: 10px;
+}
