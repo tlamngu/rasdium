@@ -1,0 +1,303 @@
+@import url('https://fonts.googleapis.com/css2?family=Moirai+One&display=swap');
+html,
+body {
+  position: relative;
+    background-color: rgb(40, 45, 49);
+  min-width: 100vw;
+  min-height: 100vh;
+  overflow: hidden;
+}
+*{
+  box-sizing: border-box;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
+.account-container {
+  width: 100%;
+  position: absolute;
+  margin-top: 150px;
+  z-index: 10;
+}
+.rounded-btn {
+  border-radius: 100px;
+  aspect-ratio: 1/1;
+  width: 40px;
+}
+.divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #554141;
+}
+.h-custom {
+  height: calc(100% - 73px);
+}
+.AuthPlace{
+  position: relative;
+    width: 60vw;
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+#AuthDisplay{
+    height: 45vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.text-body{
+  color: white;
+}
+#AuthDisplay > h1{
+  color: whitesmoke;
+  margin: auto;
+  margin-top: 0;
+  margin-bottom: 50px;
+}
+.DisplayBG{
+    width: 60vw;
+    height: 40vh;
+    background-color: #3d3d3d33;
+    position: absolute;
+    filter: blur(20px) saturate(5) hue-rotate(180deg);
+}
+.Seperate{
+  margin-top: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.Seperate > a{
+  z-index: 2;
+  padding: 5px;
+  text-decoration: none;
+  color: white;
+}
+.btn-dark{
+  --bs-btn-hover-bg: #181a20;
+}
+
+
+.AuthGrid{
+    position: absolute;
+    width: 20vw;
+    background-color: #4d4d4d27;
+    padding: 20px;
+    right: 5vw;
+}
+.descriptionDisplay{
+  width: 100%;
+  padding: 10%;
+  grid-column: auto;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  transition: 0.5S;
+}
+.descriptionDisplay > *{
+  color: white;
+}
+.descriptionDisplay > p > a{
+  color: #f7f9ff;
+}
+
+.gridLayout{
+  position: absolute;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: auto auto auto auto;
+}
+.formDisplay{
+  width: 100%;
+  background-color: #ffffff46;
+  grid-column: 2/ span 3;
+  height: 100%;
+  position: relative;
+  transition: 0.5S;
+}
+.frameGroup{
+  width: 100%;
+  height: 100%;
+}
+.frameGroup .frame{
+  width: 100%;
+  height: 100%;
+  padding: 10%;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.966);
+  border-radius: 5px;
+  transition: 0.5s;
+}
+.frame > *{
+  margin: 20px;
+}
+.frame > input{
+  border: 1px solid black;
+  border-radius: 100px;
+  padding: 5px;
+  width: 90%;
+  height: 40px;
+  background: none;
+}
+::-webkit-scrollbar {
+  width: 6px;
+  background-color: #212529;
+}
+::-webkit-scrollbar-thumb {
+  background-color: #000000;
+}
+.frame > textarea{
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  min-height: 40px;
+  width: 90%;
+  background: none;
+}
+.frameGroup .frame-hide{
+  display: none;
+}
+.frameGroup .frameDark{
+  background-color: #181a20;
+  transition: 0.2s;
+}
+.frameDark > *{
+  opacity: 0;
+}
+.frameGroup .frameDisable{
+  pointer-events: none;
+}
+.formDisplay .trueDisplay{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+}
+.formDisplay .animatedDisplay{
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  pointer-events:none;
+  z-index: 5;
+  transition: width background-color 1s ease-out;
+  }
+@keyframes animationDisplay{
+  0%{
+    width: 0%;
+    height: 100%;
+  }
+  70%{
+    width: 100%;
+  }
+}
+.formDisplay .load-animation{
+  width: 100%;
+  pointer-events: all;
+  background-color: #313542;
+  animation: animationDisplay 1s ease-in;
+  transition: width background-color 1s ease-out;
+}
+@keyframes animationDisplay-out{
+  0%{
+    width: 100%;
+    height: 100%;
+  }
+  100%{
+    width: 0%;
+  }
+}
+.formDisplay .animation-out{
+  width: 100%;
+  pointer-events: all;
+  background-color: #313542;
+
+  animation: animationDisplay-out 1s ease-out;
+}
+.srb{
+  background: none;
+  outline: none;
+  border: 1px solid rgb(0, 0, 0);
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
+  border-radius: 100px;
+  color: rgb(0, 0, 0);
+  font-size: large;
+  transition: background-color 0.1s ease-in-out;
+}
+.srb:hover{
+  cursor: pointer;
+  background-color: #181a20;
+  color: white;
+}
+.simple-nav{
+  width: 100vw;
+  height: 7.5vh;
+
+}
+.simple-nav .brand-container{
+   width: 30%;
+   height: 100%;
+   display: flex;
+   align-items: center;
+}
+.brand-container > p{
+  font-size: xx-large;
+  margin: 10px;
+  text-align: center;
+  color: white;
+  font-family: 'Moirai One', cursive;
+
+}
+.simple-nav .brand-logo{
+  height: 70%;
+  margin-left: 20px;
+}
+
+@keyframes spinner {
+  0% {
+    transform: translate3d(-50%, -50%, 0) rotate(0deg);
+  }
+  100% {
+    transform: translate3d(-50%, -50%, 0) rotate(360deg);
+  }
+}
+.spin::before {
+  animation: 1.5s linear infinite spinner;
+  animation-play-state: inherit;
+  border: solid 5px #cfd0d1;
+  border-bottom-color: #000000;
+  border-radius: 50%;
+  content: "";
+  height: 40px;
+  width: 40px;
+  position: absolute;
+  transform: translate3d(-50%, -50%, 0);
+  will-change: transform;
+}
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
