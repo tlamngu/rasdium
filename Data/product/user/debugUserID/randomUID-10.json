@@ -2,6 +2,8 @@
   "id": "ProductID-10",
   "name": "Debug-project-10",
   "description": "this is description for it (10)!",
+  "tags":["tester", "test-project", "master"],
+  "media":["/product_image/user/debugUserID/10203049DF-TESTONLY.webp"],
   "funding": {
     "required": 35000,
     "funded": 350000,
