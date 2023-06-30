@@ -1,0 +1,33 @@
+{
+  "id": "ProductID-5",
+  "name": "Debug-project-5",
+  "description": "this is description for it (5)!",
+  "funding": {
+    "required": 35000,
+    "funded": 350000,
+    "funded_by": [
+      {
+        "fundingTester_uid": {
+          "funded_value": 150000,
+          "funded_pack": "economic"
+        }
+      },
+      {
+        "fundingTester_uid-1": {
+          "funded_value": 100000,
+          "funded_pack": "economic"
+        }
+      },{
+        "fundingTester_uid-2": {
+          "funded_value": 100000,
+          "funded_pack": "economic"
+        }
+      },{
+        "fundingTester_uid-3": {
+          "funded_value": 100000,
+          "funded_pack": "economic"
+        }
+      }
+    ]
+  }
+}

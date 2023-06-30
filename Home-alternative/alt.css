@@ -1,0 +1,13 @@
+body, html{
+    min-width: 100vw;
+    min-height: 100vh;
+    
+}
+*{
+    box-sizing: border-box;
+}
+footer{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}

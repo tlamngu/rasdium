@@ -7,7 +7,6 @@ html, body{
     min-height: 100vh;
 }
 body{
-    background-color: #000000;
 }
 ::-webkit-scrollbar {
     width: 6px;
@@ -40,9 +39,9 @@ body{
     max-height: 150vh;
     overflow-y: scroll;
     overflow-x: hidden;
-    scroll-snap-type: mandatory; /* for older browsers */
-    scroll-snap-points-y: repeat(100vh); /* for older browsers */
-    scroll-snap-type: y mandatory;
+    /* scroll-snap-type: mandatory; 
+    scroll-snap-points-y: repeat(100vh); 
+    scroll-snap-type: y mandatory; */
 }
 
 .section{

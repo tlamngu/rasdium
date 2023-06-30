@@ -1,0 +1,17 @@
+{
+  "id": "ProductID",
+  "name": "Debug-project-1",
+  "description": "this is description for it!",
+  "funding": {
+    "required": 5000,
+    "funded": 2000,
+    "funded_by": [
+      {
+        "fundingTester_uid": {
+          "funded_value": 5,
+          "funded_pack": "economic"
+        }
+      }
+    ]
+  }
+}

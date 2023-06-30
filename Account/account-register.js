@@ -24,19 +24,18 @@ nextFrameButton.forEach((btn) => {
     if (frame_counter > 8) {
       frame_counter = 8;
     }
-    if (frame_counter > 1 && frame_counter < 7) {
+    if (frame_counter > 1 && frame_counter <= 7) {
       console.log("Checking...");
       let frameInput =
         targetFrame.getElementsByTagName("input")[0] ||
         targetFrame.getElementsByTagName("textarea")[0];
-      console.log(frameInput);
       let inputTarget = targetFrame.getAttribute("inputTarget");
       let str = "";
       if (frameInput != undefined) {
         str = frameInput.value || "";
       }
-      console.log(`Debug input:  ${str}`);
       if (!containsHtmlScript(str)) {
+        console.log(str)
         let regexCheckApprove = false;
         switch (inputTarget) {
           case "name":
@@ -86,7 +85,7 @@ nextFrameButton.forEach((btn) => {
             regexCheckApprove = regextel.test(str);
             accountData.tel = str;
             break;
-          case "pw":
+          case "password":
             console.log("Case: pw");
             let regexpw =
               /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])([^ ]+){8,}$/;
@@ -94,8 +93,13 @@ nextFrameButton.forEach((btn) => {
             console.log("Regex result of pw: " + regexCheckApprove)
             if (regexCheckApprove) {
               accountData.password = str;
+            }else{
+              alert("Password is not match required!")
             }
             break;
+          case "":
+            alert("Something was wrong, page will refresh!")
+            break
         }
         console.log(regexCheckApprove);
         if (!regexCheckApprove && inputTarget != "story") {
@@ -135,6 +139,7 @@ nextFrameButton.forEach((btn) => {
         });
       }
     } else {
+
       allowNext = true;
     }
     if (allowNext) {
@@ -165,18 +170,34 @@ nextFrameButton.forEach((btn) => {
                   story: accountData.story,
                   tag: accountData.tag,
                 });
-                alert("Account creation success.");
+                swal({
+                  title: "Your account is almost ready, login and complete the email >_<!",
+                  text: "Wellcome to RFund comunity!",
+                  icon: "success",
+                }).then((e)=>{
+                  window.open(window.location.origin + "/Account/account.html", "_self")
+                });
               })
               .catch(function (error) {
                 // Xử lý lỗi đăng ký
-                console.log("Register error", error);
-                alert(error);
+                swal({
+                  title:
+                    "Oops, we catch an error on creating account for you :(",
+                  text: error.message,
+                  icon: "error",
+                  dangerMode: true,
+                }).then((e)=>{
+                  window.open(window.location.href, "_self")
+                });
               });
           }
           if (this.classList.contains("animation-out")) {
             console.log("Closing anim-out");
             $(this).removeClass("animation-out"); //remove animation when done
             targetFrame.classList.remove("frameDisable");
+            if(frame_counter == 7){
+              frame_counter ++;
+            }
           }
           setTimeout(
             () => {

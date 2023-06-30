@@ -1,0 +1,76 @@
+{
+    "bind_list":{
+        "debugUserID":[{
+            "projectID": "randomUID",
+            "bindingFile": "/product/user/debugUserID/randomUID-1.json",
+            "created":{
+                "date": "2023/12/03 20:23",
+                "ms": "1687637212292"
+            }
+        },{
+            "projectID": "randomUID-2",
+            "bindingFile": "/product/user/debugUserID/randomUID-2.json",
+            "created":{
+                "date": "2023/12/03 20:23",
+                "ms": "1687637212292"
+            }
+        },{
+            "projectID": "randomUID-3",
+            "bindingFile": "/product/user/debugUserID/randomUID-3.json",
+            "created":{
+                "date": "2023/12/03 20:23",
+                "ms": "1687637212292"
+            }
+        },{
+            "projectID": "randomUID-4",
+            "bindingFile": "/product/user/debugUserID/randomUID-4.json",
+            "created":{
+                "date": "2023/12/03 20:23",
+                "ms": "1687637212292"
+            }
+        },{
+            "projectID": "randomUID-5",
+            "bindingFile": "/product/user/debugUserID/randomUID-5.json",
+            "created":{
+                "date": "2023/12/03 20:23",
+                "ms": "1687637212292"
+            }
+        },{
+            "projectID": "randomUID-6",
+            "bindingFile": "/product/user/debugUserID/randomUID-6.json",
+            "created":{
+                "date": "2023/12/03 20:23",
+                "ms": "1687637212292"
+            }
+        },{
+            "projectID": "randomUID-7",
+            "bindingFile": "/product/user/debugUserID/randomUID-7.json",
+            "created":{
+                "date": "2023/12/03 20:23",
+                "ms": "1687637212292"
+            }
+        },{
+            "projectID": "randomUID-8",
+            "bindingFile": "/product/user/debugUserID/randomUID-8.json",
+            "created":{
+                "date": "2023/12/03 20:23",
+                "ms": "1687637212292"
+            }
+        },{
+            "projectID": "randomUID-9",
+            "bindingFile": "/product/user/debugUserID/randomUID-9.json",
+            "created":{
+                "date": "2023/12/03 20:23",
+                "ms": "1687637212292"
+            }
+        },{
+            "projectID": "randomUID-10",
+            "bindingFile": "/product/user/debugUserID/randomUID-10.json",
+            "created":{
+                "date": "2023/12/03 20:23",
+                "ms": "1687637212292"
+            }
+        }
+    ]
+    }
+}
