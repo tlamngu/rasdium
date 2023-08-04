@@ -4,6 +4,7 @@ let frameAnimation = document.querySelector(".animatedDisplay");
 let descriptionDisplay = document.querySelector(".descriptionDisplay");
 let formDisplay = document.querySelector(".formDisplay");
 let frame_counter = 0;
+let register_processing = false
 let accountData = {
   name: "",
   email: "",
@@ -76,7 +77,7 @@ nextFrameButton.forEach((btn) => {
             let counter = str.split(",").length;
             if (counter > 2) {
               regexCheckApprove = true;
-              accountData.tag = str;
+              accountData.tag = str.split(",");
             }
             break;
           case "tel":
@@ -154,7 +155,9 @@ nextFrameButton.forEach((btn) => {
           console.log("waiting to close animation...");
           targetFrame.classList.add("frame-hide");
           nextFrame.classList.remove("frame-hide");
-          if (frame_counter - 1 == 7) {
+          if (frame_counter - 1 == 7 && !register_processing) {
+            register_processing = true
+            console.log(accountData)
             firebase
               .auth()
               .createUserWithEmailAndPassword(
@@ -162,20 +165,43 @@ nextFrameButton.forEach((btn) => {
                 accountData.password
               )
               .then(function (user) {
-                console.log("Account register complete", user);
-                db.collection("users-data-public").add({
-                  name: accountData.name,
-                  email: accountData.email,
-                  phone: accountData.tel,
-                  story: accountData.story,
-                  tag: accountData.tag,
-                });
-                swal({
-                  title: "Your account is almost ready, login and complete the email >_<!",
-                  text: "Wellcome to RFund comunity!",
-                  icon: "success",
-                }).then((e)=>{
-                  window.open(window.location.origin + "/Account/account.html", "_self")
+                document.getElementById("Account_creation_status").innerHTML = "Almost there..."
+                firebase.auth().onAuthStateChanged((user_data) => {
+                  if (user_data) {
+                    // User is signed in, get the token ID
+                      user_data.getIdToken().then((idToken) => {
+                        var settings = {
+                          "url": "https://rbase.zeakydev.repl.co/user/register",
+                          "method": "POST",
+                          "timeout": 0,
+                          "headers": {
+                            "Content-Type": "application/json"
+                          },
+                          "data": JSON.stringify({
+                            "username": accountData.name,
+                            "story": accountData.story,
+                            "phone": accountData.tel,
+                            "tags":  accountData.tag,
+                            "user_token": idToken
+                          }),
+                        };
+                        
+                        $.ajax(settings).done(function (response) {
+                          console.log(response);
+                          if(response == "OK"){
+                            swal({
+                              title:
+                                "Your account is ready, check your mail-box to verify your email!",
+                              text: "beep boop beep",
+                              icon: "success",
+                              dangerMode: true,
+                            }).then((e)=>{
+                              window.open("/Account/account.html", "_self")
+                            });
+                          }
+                        });
+                      });                      
+                  }
                 });
               })
               .catch(function (error) {

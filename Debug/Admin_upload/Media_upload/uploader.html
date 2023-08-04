@@ -1,0 +1,40 @@
+<html>
+  <head> </head>
+  <body>
+    <h1>Image Upload</h1>
+    <label for="file-input">Select an image file:</label>
+    <input type="file" id="file-input" accept="image/*" /><br />
+    <label for="admin-key-input">Enter the admin key:</label>
+    <input type="text" id="admin-key-input" /><br />
+    <button type="button" id="submit-button">Upload</button>
+    <script>
+      // Get the file input element, the admin key input element and the submit button
+      const fileInput = document.getElementById("file-input");
+      const adminKeyInput = document.getElementById("admin-key-input");
+      const submitButton = document.getElementById("submit-button");
+
+      // Add a click event listener to the submit button
+      submitButton.addEventListener("click", async () => {
+        // Get the file object from the file input
+        const file = fileInput.files[0];
+
+        // Get the admin key value from the admin key input
+        const adminKey = adminKeyInput.value;
+
+        const formData = new FormData();
+        formData.append("file", file);
+        formData.append("admin_key", adminKey);
+
+        // Send a POST request to the FastAPI endpoint with the FormData
+        const response = await fetch("https://rbase.zeaky.dev/admin/upload/media", {
+          method: "POST",
+          body: formData,
+        });
+
+        // Parse the response as JSON and get the link or the error
+        const data = await response;
+        console.log(response);
+      });
+    </script>
+  </body>
+</html>

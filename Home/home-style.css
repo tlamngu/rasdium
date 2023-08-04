@@ -10,7 +10,6 @@ body{
 }
 ::-webkit-scrollbar {
     width: 6px;
-    background-color: #212529;
 }
 ::-webkit-scrollbar-thumb {
     background-color: #000000;
@@ -52,8 +51,6 @@ body{
     align-items: center;
     justify-content: center;
     flex-flow: column;
-    position: relative;
-    scroll-snap-align: top;
     position: relative;
 }
 .section-align-top{
@@ -111,6 +108,12 @@ body{
     height: 100%;
     object-fit: cover;
 }
+.img-fit{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .Carousel-item .Carousel-textbox{
     position: absolute;
     bottom: 15px;
@@ -145,6 +148,19 @@ body{
     transition: 0.5s;
     filter: blur(2px);
 }
+.Spacer-section-15{
+    height: 15vh;
+    width: 100vw;
+}
+.Spacer-section-25{
+    min-height: 25vh;
+    width: 100vw;
+}
+.section-dark{
+    /* background-color: #212529; */
+    background-color :#000e1a;
+
+}
 .Carousel-item[tabindex="0"]{
     scale: 100%;
     width: 100%;
@@ -162,18 +178,70 @@ body{
     margin: 20px;
 }
 .product-list{
-    display: grid;
-    grid-template-columns: auto auto auto;
+    height: 100%;
 }
 .product-list .card{
-    min-width: 400px;
-    width: 80%;
-    aspect-ratio: 1/1.3;
     margin: auto;
     margin: 10px;
 }
+.product-list .carousel{
+    width: 100vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card_container_3{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card_container_3 > *{
+    color: black;
+}
+.carousel-list{
+    width: 100%;
+}
+.carousel-indicators{
+    position: absolute;
+    z-index: 100;
+    bottom: -10%;
+}
 .card{
+    max-width: 350px;
     transition: 0.2s ease-in;
+    position: relative;
+    padding: 0;
+    border: none;
+}
+.card-cover-layer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    z-index: 5;
+    border-radius: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;        
+    transition:  0.1s;
+}
+.card-cover-layer:hover{
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.501) 85%);
+    z-index: 1;
+    opacity: 1;
+    height: 100%;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+.card-cover-layer > button{
+    background-color: #000000;
+    width: 50%;
+    height: 40px;
+    border: 0;
+}
+.card-cover-layer > button:hover{
+    background-color: #000000;
+
 }
 .card:hover{
     transform: translate(0, -20px);
@@ -188,8 +256,90 @@ body{
 }
 .card > img{
     width: 100%;
-    height: 70%;
+    aspect-ratio: 1/1;
     object-fit: cover;
+}
+.pricing .price-bar{
+    width: 100%;
+    min-height: 25px;
+}
+.pricing .price-bar::-webkit-slider-thumb {
+    opacity: 0;}
+.space-10px{
+    margin: 10px;
+}
+.recomended_product{
+    justify-content: center;
+}
+.row{
+    justify-content: center;
+}
+.section-dark > * {
+    color: white;
+}
+.inner-center{
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;  
+    width: 100%;
+    height: 100%;  
+}
+timeline-content{
+    width: 100%;
+    /* border: 1px solid white; */
+    color: #ffffff;
+    height: 100%;
+    padding: 5%;
+}
+divider-top{
+    position: absolute;
+    top: 0;
+    width: 1px;
+    height: 50%;
+    background-color: white;
+}
+divider-center{
+    position: absolute;
+    bottom: 0;
+    width: 1px;
+    height: 50%;
+    background-color: white;
+}
+divider-right{
+    position: absolute;
+    width: 60%;
+    height: 1px;
+    background-color: white;
+    right: -10%;
+}
+divider-left{
+    position: absolute;
+    width: 60%;
+    height: 1px;
+    background-color: white;
+    left: -10%;
+}
+.rounded_cir{
+    color: #000000;
+    width: 3rem;
+    aspect-ratio: 1/1;
+    background-color: white;
+    border-radius: 100rem;
+    position: relative;
+}
+.rounded_cir > *{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
+    text-align: center;
+    font-size: 1.5rem;
+    z-index: 2;
 }
 footer{
     margin-top: 200px;
@@ -222,4 +372,140 @@ footer{
 }
 .mtop-100{
     margin-top: calc( 100px + 2%);
+}
+
+
+/* Timeline */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Helvetica, sans-serif;
+  background-color: whitesmoke;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: white;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  margin-left: -3px;
+}
+
+/* timeline_container around content */
+.timeline_container {
+  padding: 10px 40px;
+  position: relative;
+  background-color: inherit;
+  width: 50%;
+}
+
+/* The circles on the timeline */
+.timeline_container::after {
+  content: '';
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  right: -17px;
+  background-color: white;
+  border: 4px solid #FF9F55;
+  top: 15px;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+/* Place the timeline_container to the left */
+.left {
+  left: 0;
+}
+
+/* Place the timeline_container to the right */
+.right {
+  left: 50%;
+}
+
+/* Add arrows to the left timeline_container (pointing right) */
+.left::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  right: 30px;
+  border: medium solid white;
+  border-width: 10px 0 10px 10px;
+  border-color: transparent transparent transparent white;
+}
+
+/* Add arrows to the right timeline_container (pointing left) */
+.right::before {
+  content: " ";
+  height: 0;
+  position: absolute;
+  top: 22px;
+  width: 0;
+  z-index: 1;
+  left: 30px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+}
+
+/* Fix the circle for timeline_containers on the right side */
+.right::after {
+  left: -16px;
+}
+
+/* The actual content */
+.content {
+  padding: 20px 30px;
+  background-color: white;
+  position: relative;
+  border-radius: 6px;
+}
+
+/* Media queries - Responsive timeline on screens less than 600px wide */
+@media screen and (max-width: 600px) {
+  /* Place the timelime to the left */
+  .timeline::after {
+  left: 31px;
+  }
+  
+  /* Full-width timeline_containers */
+  .timeline_container {
+  width: 100%;
+  padding-left: 70px;
+  padding-right: 25px;
+  }
+  
+  /* Make sure that all arrows are pointing leftwards */
+  .timeline_container::before {
+  left: 60px;
+  border: medium solid white;
+  border-width: 10px 10px 10px 0;
+  border-color: transparent white transparent transparent;
+  }
+
+  /* Make sure all circles are at the same spot */
+  .left::after, .right::after {
+  left: 15px;
+  }
+  
+  /* Make all right timeline_containers behave like the left ones */
+  .right {
+  left: 0%;
+  }
 }

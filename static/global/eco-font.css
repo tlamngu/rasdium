@@ -1,0 +1,22 @@
+/* Import the fonts from Google Fonts */
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Yeseva+One");
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Yeseva One", serif;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+}
+a {
+  font-family: "Montserrat", sans-serif;
+}
+
+div {
+  font-family: "Montserrat", sans-serif;
+}
